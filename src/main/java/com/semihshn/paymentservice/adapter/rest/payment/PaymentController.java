@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class PaymentController {
     private final PaymentService paymentService;
 
-    @PostMapping()
+    @PostMapping
     public PaymentCreateResponse create(@RequestBody @Valid PaymentCreateRequest request) {
         Long createdPaymentId = paymentService.create(request.convertToPayment());
         return PaymentCreateResponse.builder().id(createdPaymentId).build();
